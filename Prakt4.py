@@ -1,4 +1,5 @@
 import multiprocessing
+import time
 
 # Функція для підрахунку кількості входжень підпослідовності subseq у послідовності seq
 def count_occurrences(subseq, seq, start, end):
@@ -29,5 +30,8 @@ if __name__ == '__main__':
     seq = "ACGTTACGT" # Рядок, який містить послідовність, в якій потрібно знайти входження підпослідовності
     subseq = "AC" # Рядок, який містить підпослідовність, яку потрібно знайти у послідовності 'seq'
     num_processes = 4 # Змінна, яка містить кількість процесів, які будуть створені для обчислення
+    start_time = time.time()
     result = parallel_count(subseq, seq, num_processes)
+    end_time = time.time()
     print("Кількість входжень послідовності {0} у послідовність {1}: {2}".format(subseq, seq, result))
+    print("Час виконання програми: {0:.5f} секунд".format(end_time - start_time))
